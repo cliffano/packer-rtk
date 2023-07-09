@@ -19,7 +19,7 @@
       "type": "keep-a-changelog"
     },
     {
-      "path": ".github/workflows/publish-workflow.yaml",
+      "path": ".github/workflows/publish-docker-workflow.yaml",
       "type": "yaml",
       "params": {
         "property": "jobs.build.steps.0.with.ref",
