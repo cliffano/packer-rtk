@@ -29,8 +29,8 @@ build: stage
 		templates/packer/docker.json
 
 test:
-	pyinfra @docker/cliffano/rtk:$(version) exec -- rtk --version
-	pyinfra @docker/cliffano/rtk:$(version) exec -- rtk --help
+	pyinfra @docker/cliffano/rtk:$(version) exec -- --version
+	pyinfra @docker/cliffano/rtk:$(version) exec -- --help
 
 publish:
 	docker image push cliffano/rtk:latest
