@@ -1,0 +1,48 @@
+version ?= 0.9.0-pre.0
+
+ci: clean deps lint build test
+
+clean:
+	rm -rf logs
+
+stage:
+	mkdir -p logs
+
+deps:
+	pip3 install -r requirements.txt
+
+lint:
+	packer validate -syntax-only $(VAR_PARAMS) templates/packer/docker.json
+	# ansible-lint provisioners/ansible/playbook/*.yaml
+	shellcheck provisioners/*.sh
+	yamllint conf/ansible/inventory/group_vars/*.yaml provisioners/ansible/playbook/*.yaml
+	jsonlint conf/packer/vars/*.json templates/packer/*.json
+
+build: stage
+	PACKER_LOG_PATH=logs/packer-$@.log \
+		PACKER_LOG=1 \
+		PACKER_TMP_DIR=/tmp \
+		packer build \
+		$(VAR_PARAMS) \
+		-var-file=conf/packer/vars/docker.json \
+		-var 'version=$(version)' \
+		templates/packer/docker.json
+
+test:
+	pyinfra @docker/cliffano/rtk:$(version) exec -- rtk --version
+	pyinfra @docker/cliffano/rtk:$(version) exec -- rtk --help
+
+publish:
+	docker image push cliffano/rtk:latest
+	docker image push cliffano/rtk:$(version)
+
+release-major:
+	rtk release --release-increment-type major
+
+release-minor:
+	rtk release --release-increment-type minor
+
+release-patch:
+	rtk release --release-increment-type patch
+
+.PHONY: ci clean stage deps lint build test publish release-major release-minor release-patch

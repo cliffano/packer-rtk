@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install rtk node.js package
+      community.general.npm:
+        name: rtk
+        version: '{{ rtk_version }}'
+        global: true
