@@ -1,6 +1,6 @@
 version ?= 1.0.1-pre.0
 
-ci: clean deps lint build test
+ci: clean deps lint build-docker test-docker
 
 clean:
 	rm -rf logs
@@ -18,7 +18,7 @@ lint:
 	yamllint conf/ansible/inventory/group_vars/*.yaml provisioners/ansible/playbook/*.yaml
 	jsonlint conf/packer/vars/*.json templates/packer/*.json
 
-build: stage
+build-docker: stage
 	PACKER_LOG_PATH=logs/packer-$@.log \
 		PACKER_LOG=1 \
 		PACKER_TMP_DIR=/tmp \
@@ -28,10 +28,10 @@ build: stage
 		-var 'version=$(version)' \
 		templates/packer/docker.json
 
-test:
+test-docker:
 	py.test -v test/testinfra/docker.py
 
-publish:
+publish-docker:
 	docker image push cliffano/rtk:latest
 	docker image push cliffano/rtk:$(version)
 
@@ -44,4 +44,4 @@ release-minor:
 release-patch:
 	rtk release --release-increment-type patch
 
-.PHONY: ci clean stage deps lint build test publish release-major release-minor release-patch
+.PHONY: ci clean stage deps lint build-docker test-docker publish-docker release-major release-minor release-patch
