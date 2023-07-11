@@ -1,4 +1,4 @@
 {
   "docker_source": "node:20.3.0-alpine3.18",
-  "version": "1.0.2-pre.0"
+  "version": "1.1.0"
 }
