@@ -7,7 +7,7 @@
 Packer RTK
 -------------
 
-Packer RTK is a Packer builder of Docker image which contains [RTK](https://github.com/cliffano/rtk), an agnostic software release tool.
+Packer RTK is a Packer builder of machine image for running [RTK](https://github.com/cliffano/rtk) software release tool.
 
 | Packer RTK Version | Node Version | Alpine Version | RTK Version | Git Version |
 |--------------------|--------------|----------------|-------------|-------------|
