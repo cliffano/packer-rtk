@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/cliffano/packer-rtk/workflows/CI/badge.svg)](https://github.com/cliffano/packer-rtk/actions?query=workflow%3ACI)
 [![Docker Pulls Count](https://img.shields.io/docker/pulls/cliffano/rtk.svg)](https://hub.docker.com/r/cliffano/rtk/)
-[![Vulnerability Scanning Status](https://snyk.io/test/github/cliffano/packer-rtk/badge.svg)](https://snyk.io/test/github/cliffano/packer-rtk)
+[![Security Status](https://snyk.io/test/github/cliffano/packer-rtk/badge.svg)](https://snyk.io/test/github/cliffano/packer-rtk)
 
 Packer RTK
 -------------
