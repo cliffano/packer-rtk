@@ -1,5 +1,6 @@
 #!/bin/sh
 set -o errexit
+set -o nounset
 
 echo "node path: $(command -v node)"
 echo "npm path: $(command -v npm)"
