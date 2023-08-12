@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- Upgrade RTK to 3.0.0
+- Upgrade node to 20.5.1
+
 ## 1.1.0 - 2023-07-11
 ### Added
 - Add git package used for committing changes
