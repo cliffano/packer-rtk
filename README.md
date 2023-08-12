@@ -25,7 +25,7 @@ Or alternatively, you can create the Docker image:
 
     git clone https://github.com/cliffano/packer-rtk
     cd packer-rtk
-    make docker
+    make build-docker
 
 An image with `cliffano/rtk` repository and `latest` tag should show up:
 
