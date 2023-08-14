@@ -5,7 +5,7 @@
 [![Security Status](https://snyk.io/test/github/cliffano/packer-rtk/badge.svg)](https://snyk.io/test/github/cliffano/packer-rtk)
 
 Packer RTK
--------------
+----------
 
 Packer RTK is a Packer builder of machine image for running [RTK](https://github.com/cliffano/rtk) software release tool.
 
@@ -47,3 +47,17 @@ Simply run a container using cliffano/rtk image:
       -v /var/run/docker.sock:/var/run/docker.sock \
       -v $(pwd):/opt/workspace \
       -i -t cliffano/rtk
+
+Alternatively, if you want to run the container via Docker Compose, you can have this in the configuration:
+
+    rtk:
+      image: cliffano/rtk
+      volumes:
+        - "${PWD}:/src"
+      working_dir: "/src"
+
+and then run Docker Compose:
+
+    docker-compose run \
+      --rm \
+      rtk release --release-increment-type minor
