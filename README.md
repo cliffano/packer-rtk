@@ -11,6 +11,7 @@ Packer RTK is a Packer builder of machine image for running [RTK](https://github
 
 | Packer RTK Version | Node Version | Alpine Version | RTK Version | Git Version |
 |--------------------|--------------|----------------|-------------|-------------|
+| 1.4.0              | 20.8.0       | 3.18           | 3.1.1       | 2.40.1      |
 | 1.3.0              | 20.8.0       | 3.18           | 3.1.0       | 2.40.1      |
 | 1.2.0              | 20.5.1       | 3.18           | 3.0.0       | 2.40.1      |
 | 1.1.0              | 20.3.0       | 3.18           | 2.3.0       | 2.40.1      |

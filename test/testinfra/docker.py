@@ -4,7 +4,7 @@ version = json.loads(conf.read())['version']
 
 def test_version_via_default(host):
     cmd = host.run_expect([0], 'docker run cliffano/rtk --version')
-    assert cmd.stdout == '3.1.0\n'
+    assert cmd.stdout == '3.1.1\n'
 
 def test_help_via_default(host):
     cmd = host.run_expect([0], 'docker run cliffano/rtk --help')
@@ -12,7 +12,7 @@ def test_help_via_default(host):
 
 def test_version_via_latest_tag(host):
     cmd = host.run_expect([0], 'docker run cliffano/rtk:latest --version')
-    assert cmd.stdout == '3.1.0\n'
+    assert cmd.stdout == '3.1.1\n'
 
 def test_help_via_latest_tag(host):
     cmd = host.run_expect([0], 'docker run cliffano/rtk:latest --help')
@@ -20,7 +20,7 @@ def test_help_via_latest_tag(host):
 
 def test_version_via_version_tag(host):
     cmd = host.run_expect([0], f'docker run cliffano/rtk:{version} --version')
-    assert cmd.stdout == '3.1.0\n'
+    assert cmd.stdout == '3.1.1\n'
 
 def test_help_via_version_tag(host):
     cmd = host.run_expect([0], f'docker run cliffano/rtk:{version} --help')
